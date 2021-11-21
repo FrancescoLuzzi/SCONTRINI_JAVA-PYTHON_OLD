@@ -4,9 +4,9 @@ Progetto scritto con ![JAVA VERSION](https://img.shields.io/badge/java-11.0.2-br
 
 Per eseguire il programma, dopo aver compilato e creato il .jar del progetto:
 
-'''console
+```console
 "%JAVA_HOME%"\bin\java --module-path="%JAVA_HOME%\..\javafx-sdk-11.0.2\lib" --add-modules=javafx.controls -jar NOME_PROGRAMMA.jar
-'''
+```
 
 # Backupper python
 
