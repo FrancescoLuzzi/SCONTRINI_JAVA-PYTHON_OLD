@@ -43,8 +43,8 @@ public Map<Tipo, List<Scontrino>> getScontriniMese(LocalDate data) throws Error{
 	Map<Tipo,List<Scontrino>>out=new HashMap<Tipo,List<Scontrino>>();
 	for(Tipo t:tipi) {
 		lista=mappa.get(t);
-		controlled=filter(lista, (x)->x.getData().getMonth()==data.getMonth() 
-									    && x.getData().getYear()==data.getYear());
+		controlled=filter(lista, (x)->x.getData().getMonth()==data.getMonth() &&
+				  	      x.getData().getYear()==data.getYear());
 		if(controlled.size()!=0) {
 		out.put(t, controlled);
 		}
@@ -53,8 +53,8 @@ public Map<Tipo, List<Scontrino>> getScontriniMese(LocalDate data) throws Error{
 	return out;
 }
 
-private static List<Scontrino> filter(List<Scontrino> lista,Predicate<Scontrino> data) {
-	List<Scontrino> out=lista.stream().filter(data).collect(Collectors.toList());
+private static List<Scontrino> filter(List<Scontrino> lista,Predicate<Scontrino> filterCondition) {
+	List<Scontrino> out=lista.stream().filter(filterCondition).collect(Collectors.toList());
 	return out;
 }
 
@@ -88,8 +88,8 @@ public Map<Tipo, List<Scontrino>> getTotaleAnno(LocalDate data,Tipo tipo) throws
 	Map<Tipo,List<Scontrino>>out=new HashMap<Tipo,List<Scontrino>>();
 	for(Tipo t:tipi) {
 		lista=mappa.get(t);
-		controlled=filter(lista, (x)->x.getData().getYear()==data.getYear() 
-									  && x.getTipo().toString().equals(tipo.toString()));
+		controlled=filter(lista, (x)->x.getData().getYear()==data.getYear() &&
+				  	      x.getTipo().toString().equals(tipo.toString()));
 		if(controlled.size()!=0) {
 		out.put(t, controlled);
 		}
@@ -106,7 +106,9 @@ public Map<Tipo, List<Scontrino>> getTotaleMese(LocalDate data,Tipo tipo) throws
 	Map<Tipo,List<Scontrino>>out=new HashMap<Tipo,List<Scontrino>>();
 	for(Tipo t:tipi) {
 		lista=mappa.get(t);
-		controlled=filter(lista, (x)->x.getData().getMonth()==data.getMonth() && x.getData().getYear()==data.getYear() && x.getTipo().toString().equals(tipo.toString()));
+		controlled=filter(lista, (x)->x.getData().getMonth()==data.getMonth() &&
+				  	      x.getData().getYear()==data.getYear() &&
+				  	      x.getTipo().toString().equals(tipo.toString()));
 		if(controlled.size()!=0) {
 		out.put(t, controlled);
 		}
