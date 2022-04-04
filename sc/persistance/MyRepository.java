@@ -22,7 +22,7 @@ private Map<Tipo,List<Scontrino>> mappa;
 private Reader reader;
 private final String nomeDoc="Scontrini.txt";
 private DateTimeFormatter formatter= DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT).withLocale(Locale.ITALY);
-private DecimalFormat nFormatter=new DecimalFormat("� #,##0.##;� -#,##0.##");
+private DecimalFormat nFormatter=new DecimalFormat("€ #,##0.##;€ -#,##0.##");
 private String JsonSaver="/path/python/backupper";
 	@Override
 	public Set<Tipo> getTipoScontrini() {
